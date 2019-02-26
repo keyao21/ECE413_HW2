@@ -51,18 +51,18 @@ synthTypes={
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Questions 1--4 - samples
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% for cntSynth=1:length(synthTypes)
-%     instrument.sound=synthTypes{cntSynth};
-%     [soundSample]=create_sound(instrument,notes{1}, constants);
-%     
-%     fprintf(STDOUT,'For the %s synthesis type...\n',synthTypes{cntSynth})
-%     
-%     fprintf(STDOUT,'Playing the Sample Note');
-%     soundsc(soundSample,constants.fs);
-%     pause( constants.durationChord);
-%     fprintf('\n');
-%     
-% end % for cntSynth;
+for cntSynth=1:length(synthTypes)
+    instrument.sound=synthTypes{cntSynth};
+    [soundSample]=create_sound(instrument,notes{1}, constants);
+    
+    fprintf(STDOUT,'For the %s synthesis type...\n',synthTypes{cntSynth})
+    
+    fprintf(STDOUT,'Playing the Sample Note');
+    soundsc(soundSample,constants.fs);
+    pause( constants.durationChord);
+    fprintf('\n');
+    
+end % for cntSynth;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
