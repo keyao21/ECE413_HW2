@@ -35,28 +35,34 @@ notes{3}.velocity=1;
 
 instrument.temperament='Equal';
 instrument.sound='Additive';
-instrument.totalTime=find_length_of_notes(notes);
+% instrument.totalTime=find_length_of_notes(notes); 
 
 % for just-tempered chords, use the root note and mode to generate
 % frequencies rather than a sequence of note names.
 instrument.mode = 'Major';
 
-synthTypes={'Additive','Subtractive','FM','Waveshaper'};
+synthTypes={
+     'Additive',
+     'Subtractive',
+    'FM',
+    'Waveshaper'
+    };
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Questions 1--4 - samples
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-for cntSynth=1:length(synthTypes)
-    instrument.sound=synthTypes{cntSynth};
-    [soundSample]=create_sound(instrument,notes{1}, constants);
-    
-    fprintf(STDOUT,'For the %s synthesis type...\n',synthTypes{cntSynth})
-    
-    fprintf(STDOUT,'Playing the Sample Note');
-    soundsc(soundSample,constants.fs);
-    fprintf('\n');
-    
-end % for cntSynth;
+% for cntSynth=1:length(synthTypes)
+%     instrument.sound=synthTypes{cntSynth};
+%     [soundSample]=create_sound(instrument,notes{1}, constants);
+%     
+%     fprintf(STDOUT,'For the %s synthesis type...\n',synthTypes{cntSynth})
+%     
+%     fprintf(STDOUT,'Playing the Sample Note');
+%     soundsc(soundSample,constants.fs);
+%     pause( constants.durationChord);
+%     fprintf('\n');
+%     
+% end % for cntSynth;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,12 +88,16 @@ for cntSynth=1:length(synthTypes)
     
     disp('Playing the Just Tempered Major Chord');
     soundsc(soundMajorChordJust,constants.fs);
+    pause( constants.durationChord);
     disp('Playing the Equal Tempered Major Chord');
     soundsc(soundMajorChordEqual,constants.fs);
+    pause( constants.durationChord);
     disp('Playing the Just Tempered Minor Chord');
     soundsc(soundMinorChordJust,constants.fs);
+    pause( constants.durationChord);
     disp('Playing the Equal Tempered Minor Chord');
     soundsc(soundMinorChordEqual,constants.fs);
+    pause( constants.durationChord);
     fprintf('\n');
     
 end % for cntSynth;
